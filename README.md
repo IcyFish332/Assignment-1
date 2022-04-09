@@ -2,3 +2,5 @@
 This is the first assighment in bupt.
 
 I will try again.
+
+Faith,Alfred,faith!
