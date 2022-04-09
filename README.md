@@ -1,6 +1,6 @@
 # Assighment-1
-This is the first assighment in bupt.
+ This is the first assighment in bupt.
 
 I will try again.
 
-Faith,Alfred,faith!
+*Faith,Alfred,faith!*
