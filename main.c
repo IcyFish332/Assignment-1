@@ -4,11 +4,11 @@ int main()
 {
     FILE *p=fopen("dict.dic","r");
     char buffer[1024];
+    char * line;
     char * token;
-    while(p!=NULL){
-        fscanf(p,"%s",buffer);
+    while((line = fgets(buffer, sizeof(buffer), p))!=NULL){
         if(buffer[0]!='#'){
-            token=strtok(buffer," ");
+            token=strtok(line," ");
             if(!strcmp(token,"TOTAL_STATION")){
                 token=strtok(NULL," ");
                 token=strtok(NULL," ");
