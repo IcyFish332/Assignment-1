@@ -22,7 +22,9 @@ int main()
             else if(!strcmp(token,"STRATEGY")){
                 token=strtok(NULL," ");
                 token=strtok(NULL," ");
-                STRATEGY=token;
+                STRATEGY=malloc(strlen(token)+1);            
+                strcpy(STRATEGY,token);
+                STRATEGY[4]='\0';
             }
         }
     }
@@ -30,5 +32,7 @@ int main()
     if(TOTAL_STATION==0) TOTAL_STATION=5;
     if(DISTANCE==0) DISTANCE=2;
     if(STRATEGY==NULL) STRATEGY="FCFS";
-    printf("%d %d %s\n",TOTAL_STATION,DISTANCE,STRATEGY);
+    if(!strcmp(token,"FCFS")) FCFS();
+    if(!strcmp(token,"SSTF")) SSTF();
+    if(!strcmp(token,"SCAN")) SCAN();
 }
