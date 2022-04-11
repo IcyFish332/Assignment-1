@@ -5,21 +5,21 @@ int main()
     FILE *p=fopen("dict.dic","r");
     char buffer[1024];
     char * token;
-    while(p!=EOF){
+    while(p!=NULL){
         fscanf(p,"%s",buffer);
         if(buffer[0]!='#'){
             token=strtok(buffer," ");
-            if(token=="TOTAL_STATION"){
+            if(!strcmp(token,"TOTAL_STATION")){
                 token=strtok(NULL," ");
                 token=strtok(NULL," ");
                 TOTAL_STATION=atoi(token);
             }
-            else if(token=="DISTANCE"){
+            else if(!strcmp(token,"DISTANCE")){
                 token=strtok(NULL," ");
                 token=strtok(NULL," ");
                 DISTANCE=atoi(token);
             }
-            else if(token=="STRATEGY"){
+            else if(!strcmp(token,"STRATEGY")){
                 token=strtok(NULL," ");
                 token=strtok(NULL," ");
                 STRATEGY=token;
