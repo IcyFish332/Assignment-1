@@ -44,7 +44,7 @@ int main()
     if(TOTAL_STATION==0) TOTAL_STATION=5;
     if(DISTANCE==0) DISTANCE=2;
     if(STRATEGY=="") STRATEGY="FCFS";
-    if(!strcmp(token,"FCFS")) FCFS();
-    if(!strcmp(token,"SSTF")) SSTF();
-    if(!strcmp(token,"SCAN")) SCAN();
+    FCFS();
+    SSTF();
+    SCAN();
 }
