@@ -5,6 +5,7 @@ int main()
     char buffer[1024];
     char * line;
     char * token;
+    char * tmp;
     while((line = fgets(buffer, sizeof(buffer), p))!=NULL){
         if(buffer[0]!='#'){
             token=strtok(line," ");
@@ -21,18 +22,19 @@ int main()
             else if(!strcmp(token,"STRATEGY")){
                 token=strtok(NULL," ");
                 token=strtok(NULL," ");
-                STRATEGY=malloc(strlen(token)+1);
-                strcpy(STRATEGY,token);
-                STRATEGY[4]='\0';
+                tmp=(char *)malloc(strlen(token)+1);
+                strcpy(tmp,token);
+                tmp[4]='\0';
+                STRATEGY=tmp;
+                free(tmp);
             }
         }
     }
     fclose(p);
     if(TOTAL_STATION==0) TOTAL_STATION=5;
     if(DISTANCE==0) DISTANCE=2;
-    if(STRATEGY==NULL) STRATEGY="FCFS";
-    cout<< TOTAL_STATION <<endl;
-    /*if(!strcmp(token,"FCFS")) FCFS();
+    if(STRATEGY=="") STRATEGY="FCFS";
+    if(!strcmp(token,"FCFS")) FCFS();
     if(!strcmp(token,"SSTF")) SSTF();
-    if(!strcmp(token,"SCAN")) SCAN();*/
+    if(!strcmp(token,"SCAN")) SCAN();
 }
