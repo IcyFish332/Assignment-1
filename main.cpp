@@ -1,5 +1,4 @@
-#include "base.h"
-
+#include"base.h"
 int main()
 {
     FILE *p=fopen("dict.dic","r");
@@ -22,7 +21,7 @@ int main()
             else if(!strcmp(token,"STRATEGY")){
                 token=strtok(NULL," ");
                 token=strtok(NULL," ");
-                STRATEGY=malloc(strlen(token)+1);            
+                STRATEGY=malloc(strlen(token)+1);
                 strcpy(STRATEGY,token);
                 STRATEGY[4]='\0';
             }
@@ -32,7 +31,8 @@ int main()
     if(TOTAL_STATION==0) TOTAL_STATION=5;
     if(DISTANCE==0) DISTANCE=2;
     if(STRATEGY==NULL) STRATEGY="FCFS";
-    if(!strcmp(token,"FCFS")) FCFS();
+    cout<< TOTAL_STATION <<endl;
+    /*if(!strcmp(token,"FCFS")) FCFS();
     if(!strcmp(token,"SSTF")) SSTF();
-    if(!strcmp(token,"SCAN")) SCAN();
+    if(!strcmp(token,"SCAN")) SCAN();*/
 }
