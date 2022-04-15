@@ -1,5 +1,5 @@
-# Assighment-1
-This is the first assighment in bupt.
+# Assignment-1
+This is the first assignment in bupt.
 # 课题:自动驾驶公交车调度系统
 ## 目录
 - [Assighment-1](#assighment-1)
