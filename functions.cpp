@@ -6,9 +6,6 @@ void config()
     char * line;
     char * token;
     char * tmp;
-    TOTAL_STATION=0;
-    DISTANCE=0;
-    STRATEGY="";
     while((line = fgets(buffer, sizeof(buffer), p))!=NULL){
         if(buffer[0]!='#'){
             token=strtok(line," ");

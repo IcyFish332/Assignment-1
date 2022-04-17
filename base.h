@@ -1,5 +1,5 @@
-#ifndef BASE_H
-#define BASE_H
+#ifndef MAIN_CPP_BASE_H
+#define MAIN_CPP_BASE_H
 
 #include<iostream>
 #include<cstring>
@@ -21,9 +21,9 @@ typedef struct node{
     int station; //-1表示不是站点
     struct node * ccwise;
     struct node * wise;
-}ROU;
+}ROAD;
 
-ROU * creatroutine();
+ROAD * creatroutine();
 
 void getorder();//获取指令
 
