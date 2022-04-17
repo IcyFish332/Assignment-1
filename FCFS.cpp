@@ -1,7 +1,7 @@
 #include"base.h"
 void FCFS()
 {
-    printf("I am here!\n");
+    cout<<"FCFS:I am here!"<<endl;
 }
 
   

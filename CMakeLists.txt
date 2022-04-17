@@ -10,4 +10,5 @@ add_executable(Assighment_1
         FCFS.cpp
         main.cpp
         SCAN.cpp
-        SSTF.cpp)
+        SSTF.cpp
+        functions.cpp)

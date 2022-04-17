@@ -1,6 +1,6 @@
 #include"base.h"
 void SCAN()
 {
-    printf("I am here!\n");
+    cout<<"SCAN:I am here!"<<endl;
 }
 

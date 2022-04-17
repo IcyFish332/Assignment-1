@@ -1,5 +1,5 @@
 #include"base.h"
 void SSTF()
 {
-    printf("I am here!\n");
+    cout<<"SSTF:I am here!"<<endl;
 }
