@@ -35,3 +35,39 @@ void config()
     if(DISTANCE==0) DISTANCE=2;
     if(STRATEGY=="") STRATEGY="FCFS";
 }
+
+ROAD * creatroutine(int DISTANCE,int TOTAL_STATION)
+{
+    int pos;
+    ROAD * head=new node;
+    head->position=0;
+    head->station=1;
+    head->ccwise=NULL;
+    head->wise=NULL;
+    ROAD* tmp=head;
+    for(pos=1;pos<DISTANCE*TOTAL_STATION;pos++)
+    {
+        tmp=appendNode(tmp,pos);
+    }
+    tmp->wise=head;
+    head->ccwise=tmp;
+    return head;
+}
+
+ROAD* appendNode(ROAD* head, int pos)
+{
+    ROAD* newnode=new ROAD;
+    if(newnode!=NULL)
+    {
+        newnode->position=pos;
+        if(pos%DISTANCE==0)
+        {
+            newnode->station=(pos/DISTANCE)+1;
+        }
+        else newnode->station=-1;
+        newnode->ccwise=head;
+        newnode->wise=NULL;
+        head->wise=newnode;
+        return newnode;
+    }
+}

@@ -18,12 +18,13 @@ void SCAN();
 
 typedef struct node{
     int position;
-    int station; //-1表示不是站点
+    int station; //代表站点编号，若为-1表示不是站点
     struct node * ccwise;
     struct node * wise;
 }ROAD;
 
-ROAD * creatroutine();
+ROAD * creatroutine(int DISTANCE,int TOTAL_STATION);
+ROAD * appendNode(ROAD* head, int pos);
 
 void getorder();//获取指令
 
