@@ -36,7 +36,7 @@ void config()
     if(STRATEGY=="") STRATEGY="FCFS";
 }
 
-ROAD * creatroutine(int DISTANCE,int TOTAL_STATION)
+ROAD * creatroutine()
 {
     int pos;
     ROAD * head=new node;

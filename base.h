@@ -23,12 +23,12 @@ typedef struct node{
     struct node * wise;
 }ROAD;
 
-ROAD * creatroutine(int DISTANCE,int TOTAL_STATION);
+ROAD * creatroutine();
 ROAD * appendNode(ROAD* head, int pos);
 
 void getorder();//获取指令
 
-void print();//打印状态
+//void print();//打印状态
 
 void action();
 
