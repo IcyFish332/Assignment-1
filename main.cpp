@@ -4,6 +4,7 @@ int DISTANCE=0;
 string STRATEGY="";
 int direction;
 int pos;
+string order="";
 int main()
 {
     config();

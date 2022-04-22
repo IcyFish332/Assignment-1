@@ -71,3 +71,8 @@ ROAD* appendNode(ROAD* head, int pos)
         return newnode;
     }
 }
+
+void getorder()
+{
+    cin >> order;
+}
