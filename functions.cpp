@@ -76,3 +76,17 @@ void getorder()
 {
     cin >> order;
 }
+
+void action(int direction)
+{
+
+    if(direction==0)//顺时针
+    {
+        bus=bus->wise;
+    } 
+    else if(direction==1)//逆时针
+    {
+        bus=bus->ccwise;
+    }
+
+}

@@ -26,11 +26,13 @@ typedef struct node{
 
 ROAD * creatroutine();
 ROAD * appendNode(ROAD* head, int pos);
+ROAD * head;
+ROAD * bus=head;
 
 void getorder();//获取指令
 
 //void print();//打印状态
 
-void action();
+void action(int direction);
 
 #endif
