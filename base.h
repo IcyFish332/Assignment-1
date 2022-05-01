@@ -33,6 +33,6 @@ void getorder();//获取指令
 
 //void print();//打印状态
 
-void action(int direction);
+void action();
 
 #endif

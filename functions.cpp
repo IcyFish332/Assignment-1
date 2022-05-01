@@ -77,7 +77,7 @@ void getorder()
     cin >> order;
 }
 
-void action(int direction)
+void action()
 {
 
     if(direction==0)//顺时针
