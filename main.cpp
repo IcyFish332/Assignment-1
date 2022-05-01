@@ -5,6 +5,9 @@ string STRATEGY="";
 int direction;
 int pos;
 string order="";
+ROAD * head=creatroutine();
+ROAD * bus=head;
+
 int main()
 {
     config();

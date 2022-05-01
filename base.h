@@ -26,8 +26,8 @@ typedef struct node{
 
 ROAD * creatroutine();
 ROAD * appendNode(ROAD* head, int pos);
-ROAD * head;
-ROAD * bus=head;
+extern ROAD * head;
+extern ROAD * bus;
 
 void getorder();//获取指令
 
