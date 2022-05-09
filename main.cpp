@@ -3,7 +3,6 @@ int TOTAL_STATION=0;
 int DISTANCE=0;
 string STRATEGY="";
 int direction;
-int pos;
 string order="";
 ROAD * head=creatroutine();
 ROAD * bus=head;

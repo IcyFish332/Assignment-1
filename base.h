@@ -9,7 +9,6 @@ extern int TOTAL_STATION;
 extern string STRATEGY;
 extern int DISTANCE;
 extern int direction;//0->cwise,1->ccwise
-extern int pos;//short for position
 extern string order;
 
 typedef struct node{

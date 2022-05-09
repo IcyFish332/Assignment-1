@@ -79,7 +79,6 @@ void getorder()
 
 void action()
 {
-
     if(direction==0)//顺时针
     {
         bus=bus->wise;
@@ -88,5 +87,4 @@ void action()
     {
         bus=bus->ccwise;
     }
-
 }
