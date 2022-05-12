@@ -5,8 +5,7 @@ string STRATEGY="";
 int direction;
 string order="";
 int door;
-ROAD * head=creatroutine();
-ROAD * bus=head;
+ROAD * bus;
 
 int main()
 {

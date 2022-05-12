@@ -1,6 +1,6 @@
 #include"base.h"
 
-void request_for_SCAN(int * total);
+int request_for_SCAN(int * total);
 void create_for_SCAN(int *target,int * wise,int * ccwise,int *total);
 void print_for_SCAN(int *target,int * wise,int * ccwise);
 int cleared(int * total);
@@ -15,11 +15,7 @@ void SCAN()
     int * target=new int [TOTAL_STATION];
     int * total=new int [TOTAL_STATION*DISTANCE];
 
-    /*cout<< bus->position << endl;
-    direction=0;
-    bus=bus->wise;
-    cout<< bus->position << endl;*/ //测试代码
-
+    bus=creatroutine();
     print_for_SCAN(target,wise,ccwise);
     getorder();
     while(order=="clock"){
@@ -31,7 +27,8 @@ void SCAN()
         getorder();
     }
     direction=0;
-    request_for_SCAN(total);
+    flag=request_for_SCAN(total);
+    cout<< flag <<endl;
     action();
     print_for_SCAN(target,wise,ccwise);
     getorder();
@@ -48,12 +45,15 @@ void SCAN()
                 target[flag/DISTANCE+1]=0;
                 door=0;
                 if(cleared(total)==1) direction=-1;
+                flag=request_for_SCAN(total);
+                cout<< flag <<endl;
             }
             print_for_SCAN(target,wise,ccwise);
         }
         else{
             create_for_SCAN(target,wise,ccwise,total);
-            request_for_SCAN(total);
+            flag=request_for_SCAN(total);
+            cout<< flag <<endl;
         }
         getorder();
     }
@@ -65,15 +65,20 @@ void SCAN()
     delete []total;
 }
 
-void request_for_SCAN(int * total)
+int request_for_SCAN(int * total)
 {
+    int flag;
     int min=100;
     for(int i=0;i<TOTAL_STATION*DISTANCE;i++){
         if(total[i]==1){
-            if(ruler(i)<min) min=ruler(i);
+            if(ruler(i)<min) {
+                min=ruler(i);
+                flag=i;
+            }
         }
     }
     if(min>TOTAL_STATION*DISTANCE*0.5) direction=(direction+1)%2;
+    return flag;
 }
 
 void create_for_SCAN(int *target,int * wise,int * ccwise,int * total)
@@ -119,12 +124,12 @@ int cleared(int * total)
 
 int ruler(int flag)
 {
-    if((flag-1)*DISTANCE>bus->position){
-        if(direction==0) return (flag-1)*DISTANCE-bus->position;
-        if(direction==1) return TOTAL_STATION*DISTANCE-(flag-1)*DISTANCE+bus->position;
+    if(flag>bus->position){
+        if(direction==0) return flag-bus->position;
+        if(direction==1) return TOTAL_STATION*DISTANCE-flag+bus->position;
     }
-    if((flag-1)*DISTANCE<bus->position){
-        if(direction==0) return bus->position-(flag-1)*DISTANCE;
-        if(direction==1) return TOTAL_STATION*DISTANCE+(flag-1)*DISTANCE-bus->position;
+    if(flag<bus->position){
+        if(direction==0) return bus->position-flag;
+        if(direction==1) return TOTAL_STATION*DISTANCE+flag-bus->position;
     }
 }

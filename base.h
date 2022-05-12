@@ -19,10 +19,9 @@ typedef struct node{
     struct node * wise;
 }ROAD;
 
+extern ROAD * bus;
 ROAD * creatroutine();
 ROAD * appendNode(ROAD* head, int pos);
-extern ROAD * head;
-extern ROAD * bus;
 
 void config();
 void FCFS();
