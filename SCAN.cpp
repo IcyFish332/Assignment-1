@@ -129,7 +129,7 @@ int ruler(int flag)
         if(direction==1) return TOTAL_STATION*DISTANCE-flag+bus->position;
     }
     if(flag<bus->position){
-        if(direction==0) return bus->position-flag;
-        if(direction==1) return TOTAL_STATION*DISTANCE+flag-bus->position;
+        if(direction==0) return TOTAL_STATION*DISTANCE+flag-bus->position;
+        if(direction==1) return bus->position-flag;
     }
 }
