@@ -8,12 +8,17 @@ int ruler(int flag);
 
 void SCAN()
 {
-    door=1;
+    door=0;
     int flag;
     int * ccwise=new int [TOTAL_STATION];
     int * wise=new int [TOTAL_STATION];
     int * target=new int [TOTAL_STATION];
     int * total=new int [TOTAL_STATION*DISTANCE];
+
+    /*cout<< bus->position << endl;
+    direction=0;
+    bus=bus->wise;
+    cout<< bus->position << endl;*/ //测试代码
 
     print_for_SCAN(target,wise,ccwise);
     getorder();
@@ -53,6 +58,7 @@ void SCAN()
         getorder();
     }
     cout<<"end"<<endl;
+
     delete []ccwise;
     delete []wise;
     delete []target;
@@ -72,7 +78,7 @@ void request_for_SCAN(int * total)
 
 void create_for_SCAN(int *target,int * wise,int * ccwise,int * total)
 {
-    char * temp;
+    char * temp= new char[order.size()+1];
     char * token;
     char * number;
     int num;
@@ -84,6 +90,7 @@ void create_for_SCAN(int *target,int * wise,int * ccwise,int * total)
     if(strcmp(token, "clockwise") == 0)  wise[num-1]=1;
     if(strcmp(token, "counterclockwise") == 0)  ccwise[num-1]=1;
     total[(num-1)*DISTANCE]=1;
+    delete []temp;
 }
 
 void print_for_SCAN(int *target,int * wise,int * ccwise)
