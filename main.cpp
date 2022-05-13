@@ -4,8 +4,8 @@ int DISTANCE=0;
 string STRATEGY="";
 int direction;
 string order="";
-ROAD * head=creatroutine();
-ROAD * bus=head;
+int door;
+ROAD * bus;
 
 int main()
 {

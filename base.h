@@ -9,6 +9,7 @@ extern int TOTAL_STATION;
 extern string STRATEGY;
 extern int DISTANCE;
 extern int direction;//0->cwise,1->ccwise
+extern int door;
 extern string order;
 
 typedef struct node{
@@ -18,10 +19,9 @@ typedef struct node{
     struct node * wise;
 }ROAD;
 
+extern ROAD * bus;
 ROAD * creatroutine();
 ROAD * appendNode(ROAD* head, int pos);
-extern ROAD * head;
-extern ROAD * bus;
 
 void config();
 void FCFS();
