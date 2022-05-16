@@ -22,6 +22,7 @@ typedef struct node{
 extern ROAD * bus;
 ROAD * creatroutine();
 ROAD * appendNode(ROAD* head, int pos);
+void FreeMemory(ROAD* head);
 
 void config();
 void FCFS();
