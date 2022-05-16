@@ -96,14 +96,14 @@ void create_for_FCFS()
     number=strtok(NULL," ");
     num=atoi(number);
     //若请求为当前未完成的一模一样的任务，则不创建链表
-    if(strcmp(token,"wise")==0)
+    if(strcmp(token,"clockwise")==0)
     {
         if(recording->wise[num-1]>=1)
         {
             check=1;
         }
     }
-    else if(strcmp(token,"ccwise")==0)
+    else if(strcmp(token,"counterclockwise")==0)
     {
         if(recording->ccwise[num-1]>=1)
         {
@@ -121,12 +121,12 @@ void create_for_FCFS()
     {
         Task *current=new Task;
         current->next=NULL;
-        if(strcmp(token,"wise")==0)
+        if(strcmp(token,"clockwise")==0)
         {
             current->wise[num-1]=1;
             recording->wise[num-1]+=1;
         }
-        if(strcmp(token,"ccwise")==0)
+        if(strcmp(token,"counterclockwise")==0)
         {
             current->ccwise[num-1]=1;
             recording->ccwise[num-1]+=1;
