@@ -58,6 +58,7 @@ void SCAN()
     delete []wise;
     delete []target;
     delete []total;
+    FreeMemory(bus);
 }
 
 int request_for_SCAN(int * total)
