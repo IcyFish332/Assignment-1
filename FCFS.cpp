@@ -176,7 +176,7 @@ void request_for_FCFS()
         }//((num-1)*DISTANCE)为目标站点所在的position
         if((((num-1)*DISTANCE)-bus->position>0&&((num-1)*DISTANCE)-bus->position<=(TOTAL_STATION*DISTANCE)*0.5)||(((num-1)*DISTANCE)-bus->position<0&&bus->position-((num-1)*DISTANCE)>=(TOTAL_STATION*DISTANCE)*0.5))
         {
-            direction=1;//顺时针
+            direction=0;//顺时针
         }
         else if(((num-1)*DISTANCE)-bus->position==0)//当目标站点就是现在所处的位置，则不动
         {
@@ -184,7 +184,7 @@ void request_for_FCFS()
         }
         else
         {
-            direction=0;//逆时针
+            direction=1;//逆时针
         }
     }
    
