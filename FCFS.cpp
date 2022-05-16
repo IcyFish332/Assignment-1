@@ -13,7 +13,6 @@ Task* last=NULL;
 Task* head_for_FCFS=NULL;
 Task* doing=NULL;//指向当前所作的任务
 void print_for_FCFS(Task* recording);
-int door;
 // ROAD * head;
 // ROAD * bus=head;
 void FCFS()
@@ -22,6 +21,8 @@ void FCFS()
     recording->ccwise[TOTAL_STATION]={0};
     recording->wise[TOTAL_STATION]={0};
     recording->target[TOTAL_STATION]={0};
+    bus=creatroutine();
+
     print_for_FCFS(recording);//先打印一次，此时recording为0，故打印的也都是0
     getorder();
     while(order!="end")
