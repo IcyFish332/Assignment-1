@@ -88,3 +88,16 @@ void action()
         bus=bus->ccwise;
     }
 }
+
+void FreeMemory(ROAD* head)
+{
+    ROAD* p=NULL;
+    while(head!=NULL)
+    {
+        p=head->wise;
+        free(head);
+        if(p!=NULL)
+            p->ccwise=NULL;
+        head=p;
+    }
+}
