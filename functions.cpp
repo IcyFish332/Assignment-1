@@ -95,7 +95,7 @@ void FreeMemory(ROAD* head)
     while(head!=NULL)
     {
         p=head->wise;
-        free(head);
+        delete head;
         if(p!=NULL)
             p->ccwise=NULL;
         head=p;
