@@ -18,9 +18,9 @@ void print_for_FCFS(Task* recording);
 void FCFS()
 {
     //将recording中所有数组初始化为0
-    recording->ccwise[TOTAL_STATION]={0};
-    recording->wise[TOTAL_STATION]={0};
-    recording->target[TOTAL_STATION]={0};
+    // recording->ccwise[TOTAL_STATION]={0};
+    // recording->wise[TOTAL_STATION]={0};
+    // recording->target[TOTAL_STATION]={0};
     bus=creatroutine();
 
     print_for_FCFS(recording);//先打印一次，此时recording为0，故打印的也都是0
@@ -86,11 +86,12 @@ void FCFS()
 
 void create_for_FCFS()
 {
+    char* input=new char[order.size()+1];
     char* token;
     char* number;
     int num;
+    strcpy(input,order.c_str());
     int check=0;//check为0时创建链表
-    char* input=(char*)order.data();
     token=strtok(input," ");
     number=strtok(NULL," ");
     num=atoi(number);
@@ -102,14 +103,14 @@ void create_for_FCFS()
             check=1;
         }
     }
-    if(strcmp(token,"ccwise")==0)
+    else if(strcmp(token,"ccwise")==0)
     {
         if(recording->ccwise[num-1]>=1)
         {
             check=1;
         }
     }
-    if(strcmp(token,"target")==0)
+    else if(strcmp(token,"target")==0)
     {
         if(recording->target[num-1]>=1)
         {
@@ -128,12 +129,12 @@ void create_for_FCFS()
         if(strcmp(token,"ccwise")==0)
         {
             current->ccwise[num-1]=1;
-            recording->wise[num-1]+=1;
+            recording->ccwise[num-1]+=1;
         }
         if(strcmp(token,"target")==0)
         {
             current->target[num-1]=1;
-            recording->wise[num-1]+=1;
+            recording->target[num-1]+=1;
         }
         if(head_for_FCFS==NULL)
         {
