@@ -94,32 +94,29 @@ void FCFS()
 
 void create_for_FCFS()
 {
-    char* input=new char[order.size()+1];
-    char* token;
-    char* number;
     int num;
+    cin>>num;
     int i;
-    strcpy(input,order.c_str());
+    
     int check=0;//check为0时创建链表
-    token=strtok(input," ");
-    number=strtok(NULL," ");
-    num=atoi(number);
+    
+    
     //若请求为当前未完成的一模一样的任务，则不创建链表
-    if(strcmp(token,"clockwise")==0)
+    if(order=="clockwise")
     {
         if(recording->wise[num-1]>=1)
         {
             check=1;
         }
     }
-    else if(strcmp(token,"counterclockwise")==0)
+    else if(order=="counterclockwise")
     {
         if(recording->ccwise[num-1]>=1)
         {
             check=1;
         }
     }
-    else if(strcmp(token,"target")==0)
+    else if(order=="target")
     {
         if(recording->target[num-1]>=1)
         {
@@ -130,7 +127,7 @@ void create_for_FCFS()
     {
         Task *current=new Task;
         current->next=NULL;
-        if(strcmp(token,"clockwise")==0)
+        if(order=="clockwise")
         {
             current->wise[num-1]=1;
            
@@ -142,7 +139,7 @@ void create_for_FCFS()
             }
             recording->wise[num-1]+=1;
         }
-        if(strcmp(token,"counterclockwise")==0)
+        if(order=="counterclockwise")
         {
             current->ccwise[num-1]=1;
             for(i=0;i<TOTAL_STATION;i++)
@@ -153,7 +150,7 @@ void create_for_FCFS()
             }
             recording->ccwise[num-1]+=1;
         }
-        if(strcmp(token,"target")==0)
+        if(order=="target")
         {
             current->target[num-1]=1;
             for(i=0;i<TOTAL_STATION;i++)
