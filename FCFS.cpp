@@ -18,9 +18,15 @@ void print_for_FCFS(Task* recording);
 void FCFS()
 {
     //将recording中所有数组初始化为0
-    // recording->ccwise[TOTAL_STATION]={0};
-    // recording->wise[TOTAL_STATION]={0};
-    // recording->target[TOTAL_STATION]={0};
+    int i;
+    int station;
+    for(i=0;i<TOTAL_STATION;i++)
+    {
+        recording->ccwise[i]=0;
+        recording->wise[i]=0;
+        recording->target[i]=0;
+    }
+    
     bus=creatroutine();
 
     print_for_FCFS(recording);//先打印一次，此时recording为0，故打印的也都是0
@@ -35,25 +41,26 @@ void FCFS()
         if(order=="clock")
         {
             action();
+            station=bus->station;
             print_for_FCFS(recording);
-            if(doing!=NULL&&bus->station!=-1)//当前有任务，且走到了站点再进行判断是否到达任务地点
+            if(doing!=NULL&&station!=-1)//当前有任务，且走到了站点再进行判断是否到达任务地点
             {
                 //若到达任务地点，即如果当前执行任务的wise，ccwise或target的任意一个数组的第【station-1】位为1
-                if((doing->wise[bus->station-1]==1)||(doing->ccwise[bus->station-1]==1)||(doing->target[bus->station-1]==1))
+                if((doing->wise[station-1]==1)||(doing->ccwise[station-1]==1)||(doing->target[station-1]==1))
                 {
                     door=1;//开门
                     //recording中所有数组相应位置减去doing的相应位置，即删掉任务
-                    recording->wise[bus->station-1]=recording->wise[bus->station-1]-doing->wise[bus->station-1];
-                    recording->ccwise[bus->station-1]=recording->ccwise[bus->station-1]-doing->ccwise[bus->station-1];
-                    recording->target[bus->station-1]=recording->target[bus->station-1]-doing->target[bus->station-1];
+                    recording->wise[station-1]=recording->wise[station-1]-doing->wise[station-1];
+                    recording->ccwise[station-1]=recording->ccwise[station-1]-doing->ccwise[station-1];
+                    recording->target[station-1]=recording->target[station-1]-doing->target[station-1];
                     //当存在下一个任务且下一个任务相同
-                    while((doing->next!=NULL)&&((doing->next->wise[bus->station-1]==1)||(doing->next->ccwise[bus->station-1]==1)||(doing->next->target[bus->station-1]==1)))
+                    while((doing->next!=NULL)&&((doing->next->wise[station-1]==1)||(doing->next->ccwise[station-1]==1)||(doing->next->target[station-1]==1)))
                     {
                         doing=doing->next;//任务指针向后移一个
                         //recording减去已完成的任务
-                        recording->wise[bus->station-1]=recording->wise[bus->station-1]-doing->wise[bus->station-1];
-                        recording->ccwise[bus->station-1]=recording->ccwise[bus->station-1]-doing->ccwise[bus->station-1];
-                        recording->target[bus->station-1]=recording->target[bus->station-1]-doing->target[bus->station-1];
+                        recording->wise[station-1]=recording->wise[station-1]-doing->wise[station-1];
+                        recording->ccwise[station-1]=recording->ccwise[station-1]-doing->ccwise[station-1];
+                        recording->target[station-1]=recording->target[station-1]-doing->target[station-1];
                     }
             
                     getorder();
@@ -62,12 +69,12 @@ void FCFS()
                         create_for_FCFS();
                         //同上，这时不用加doing next不为null条件是因为 按顺序完成请求，如果这时候doing next又相同了，那只可能是
                         //刚刚getorder进来的，即此为最后一个任务
-                        if((doing->next->wise[bus->station-1]==1)||(doing->next->ccwise[bus->station-1]==1)||(doing->next->target[bus->station-1]==1))
+                        if((doing->next->wise[station-1]==1)||(doing->next->ccwise[station-1]==1)||(doing->next->target[station-1]==1))
                         {
                             doing=doing->next;
-                            recording->wise[bus->station-1]=recording->wise[bus->station-1]-doing->wise[bus->station-1];
-                            recording->ccwise[bus->station-1]=recording->ccwise[bus->station-1]-doing->ccwise[bus->station-1];
-                            recording->target[bus->station-1]=recording->target[bus->station-1]-doing->target[bus->station-1];
+                            recording->wise[station-1]=recording->wise[station-1]-doing->wise[station-1];
+                            recording->ccwise[station-1]=recording->ccwise[station-1]-doing->ccwise[station-1];
+                            recording->target[station-1]=recording->target[station-1]-doing->target[station-1];
                         }
                         getorder();
                     }
@@ -90,6 +97,7 @@ void create_for_FCFS()
     char* token;
     char* number;
     int num;
+    int i;
     strcpy(input,order.c_str());
     int check=0;//check为0时创建链表
     token=strtok(input," ");
@@ -124,16 +132,34 @@ void create_for_FCFS()
         if(strcmp(token,"clockwise")==0)
         {
             current->wise[num-1]=1;
+           
+            for(i=0;i<TOTAL_STATION;i++)
+            {
+                current->ccwise[i]=0;
+               
+                current->target[i]=0;
+            }
             recording->wise[num-1]+=1;
         }
         if(strcmp(token,"counterclockwise")==0)
         {
             current->ccwise[num-1]=1;
+            for(i=0;i<TOTAL_STATION;i++)
+            {
+                
+                current->wise[i]=0;
+                current->target[i]=0;
+            }
             recording->ccwise[num-1]+=1;
         }
         if(strcmp(token,"target")==0)
         {
             current->target[num-1]=1;
+            for(i=0;i<TOTAL_STATION;i++)
+            {
+                current->ccwise[i]=0;
+                current->wise[i]=0;
+            }
             recording->target[num-1]+=1;
         }
         if(head_for_FCFS==NULL)
@@ -206,6 +232,7 @@ void print_for_FCFS(Task* recording)
         {
             cout<<"0";
         }
+        
     }
     cout<<endl<<"STATION: "<<endl<<"clockwise: ";
     for(i=0;i<TOTAL_STATION;i++)
