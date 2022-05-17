@@ -88,6 +88,7 @@ void FCFS()
 
     getorder();
     }
+    FreeMemory(bus);
     //cout<<"FCFS:I am here!"<<endl;
 }
 
