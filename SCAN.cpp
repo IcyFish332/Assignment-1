@@ -80,7 +80,7 @@ int request_for_SCAN(int * total)
 
 void create_for_SCAN(int *target,int * wise,int * ccwise,int * total)
 {
-    char * temp= new char[order.size()+1];
+    /*char * temp= new char[order.size()+1];
     char * token;
     char * number;
     int num;
@@ -92,7 +92,13 @@ void create_for_SCAN(int *target,int * wise,int * ccwise,int * total)
     if(strcmp(token, "clockwise") == 0)  wise[num-1]=1;
     if(strcmp(token, "counterclockwise") == 0)  ccwise[num-1]=1;
     total[(num-1)*DISTANCE]=1;
-    delete []temp;
+    delete []temp;*/
+    int num;
+    cin >>num;
+    if(order=="target")  target[num-1]=1;
+    if(order=="clockwise")  wise[num-1]=1;
+    if(order=="counterclockwise")  ccwise[num-1]=1;
+    total[(num-1)*DISTANCE]=1;
 }
 
 void print_for_SCAN(int *target,int * wise,int * ccwise)

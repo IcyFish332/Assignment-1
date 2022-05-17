@@ -74,7 +74,7 @@ ROAD* appendNode(ROAD* head, int pos)
 
 void getorder()
 {
-    getline(cin,order);
+    cin>>order;
 }
 
 void action()
