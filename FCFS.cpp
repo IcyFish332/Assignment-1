@@ -162,6 +162,10 @@ void create_for_FCFS()
             }
             recording->target[num-1]+=1;
         }
+        if(doing==NULL)
+        {
+            doing=current;
+        }
         if(head_for_FCFS==NULL)
         {
             head_for_FCFS=current;
