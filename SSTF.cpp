@@ -2,7 +2,7 @@
 
 void print_for_SSTF(int *target,int * wise,int * ccwise);
 void creat_for_SSTF(int *target,int * wise,int * ccwise,int * total);
-void findscan(int *total,int * targerstations,int *target,int * wise,int * ccwise);
+void findscan(int * targerstations,int *target,int * wise,int * ccwise);
 int findmin1(int* total);
 int ruler1(int flag);
 int main_task=-1;
@@ -54,10 +54,7 @@ void SSTF()
             {
                 action();
                 if(targetstations[bus->position]==1)    door=1;
-                if((main_task-1)*DISTANCE==bus->position)
-                {
-                    door=1;
-                }
+                if((main_task-1)*DISTANCE==bus->position) door=1;
             }
             else if(door==1)
             {
@@ -75,16 +72,10 @@ void SSTF()
                     getorder();
                 }
                 main_task=findmin1(total);
-                if(main_task!=-1)
-                {
-                    action();
-                }
+                if(main_task!=-1) action();
                 door=0;
                 if(targetstations[bus->position]==1)    door=1;
-                if((main_task-1)*DISTANCE==bus->position)
-                {
-                    door=1;
-                }
+                if((main_task-1)*DISTANCE==bus->position) door=1;
             }
             print_for_SSTF(target,wise,ccwise);
         }
@@ -92,18 +83,13 @@ void SSTF()
         {
 
             creat_for_SSTF(target,wise,ccwise,total);
-            findscan(total,targetstations,target,wise,ccwise);
-            if(main_task==-1)
-            {
-                main_task=findmin1(total);
-            }
+            if(main_task==-1) main_task=findmin1(total);
+            findscan(targetstations,target,wise,ccwise);
         }
-
         getorder();
     }
     cout<<"end"<<endl;
     FreeMemory(bus);
-
 }
 
 void print_for_SSTF(int *target,int * wise,int * ccwise)
@@ -132,7 +118,7 @@ void creat_for_SSTF(int *target,int * wise,int * ccwise,int * total) {
     total[(num - 1) * DISTANCE] = 1;
 }
 
-void findscan(int *total,int * targerstations,int *target,int * wise,int * ccwise)
+void findscan(int * targerstations,int *target,int * wise,int * ccwise)
 {
     int main_distance=ruler1((main_task-1)*DISTANCE);
     int a;
