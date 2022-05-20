@@ -8,13 +8,22 @@ int findmin(int * total);
 
 void SCAN()
 {
-    door=0;
     int flag;
     int * ccwise=new int [TOTAL_STATION];
     int * wise=new int [TOTAL_STATION];
     int * target=new int [TOTAL_STATION];
     int * total=new int [TOTAL_STATION*DISTANCE];
+
+    for(int i=0;i<TOTAL_STATION;i++)
+    {
+        ccwise[i]=0;
+        wise[i]=0;
+        target[i]=0;
+    }
+    for (int i=0;i<TOTAL_STATION*DISTANCE;i++)
+        total[i]=0;
     bus=creatroutine();
+    door=0;
 
     print_for_SCAN(target,wise,ccwise);
     getorder();

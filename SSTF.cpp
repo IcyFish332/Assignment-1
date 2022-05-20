@@ -13,8 +13,8 @@ void SSTF()
     int* wise=new int [TOTAL_STATION];
     int* target=new int [TOTAL_STATION];
     int* total=new int [TOTAL_STATION*DISTANCE];
-
     int* targetstations=new int [TOTAL_STATION*DISTANCE];
+
     for(int i=0;i<TOTAL_STATION;i++)
     {
         ccwise[i]=0;
@@ -27,6 +27,8 @@ void SSTF()
         targetstations[i]=0;
     }
     bus=creatroutine();
+    door=0;
+
     print_for_SSTF(target,wise,ccwise);
     getorder();
     while(order=="clock")
