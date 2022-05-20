@@ -5,6 +5,7 @@
 #include<cstring>
 using namespace std;
 
+extern int TIME;
 extern int TOTAL_STATION;
 extern string STRATEGY;
 extern int DISTANCE;
