@@ -1,4 +1,5 @@
 #include"base.h"
+
 int TOTAL_STATION=0;
 int DISTANCE=0;
 string STRATEGY="";
@@ -7,6 +8,7 @@ string order="";
 int door;
 ROAD * bus;
 int TIME=0;
+
 int main()
 {
     config();

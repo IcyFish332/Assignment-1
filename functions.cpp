@@ -1,4 +1,5 @@
 #include"base.h"
+
 void config()
 {
     FILE *p=fopen("dict.dic","r");

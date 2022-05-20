@@ -179,6 +179,7 @@ void create_for_FCFS()
         }
     }  
 }
+
 void request_for_FCFS()
 {
     int i;
@@ -223,7 +224,7 @@ void request_for_FCFS()
 void print_for_FCFS(Task* recording)
 {
     int i=0;
-    cout<<"TIME: "<<TIME++<<endl;
+    cout<<"TIME:"<<TIME++<<endl;
     cout<<"BUS:"<<endl;
     cout<<"position: "<<bus->position<<endl;
     cout<<"target: ";
