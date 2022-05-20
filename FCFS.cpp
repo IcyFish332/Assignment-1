@@ -91,7 +91,7 @@ void FCFS()
     getorder();
     }
     FreeMemory(bus);
-    //cout<<"FCFS:I am here!"<<endl;
+    cout<<"end"<<endl;
 }
 
 void create_for_FCFS()
