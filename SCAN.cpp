@@ -90,6 +90,7 @@ void create_for_SCAN(int *target,int * wise,int * ccwise,int * total)
 
 void print_for_SCAN(int *target,int * wise,int * ccwise)
 {
+    cout<<"TIME:"<<TIME++<<endl;
     cout<<"BUS:"<<endl;
     cout<<"position:"<<bus->position<<endl;
     cout<<"target: ";

@@ -1,6 +1,5 @@
 #include"base.h"
-void create_for_FCFS();
-void request_for_FCFS();
+
 typedef struct list
 {
     int* ccwise=new int[TOTAL_STATION];
@@ -8,13 +7,16 @@ typedef struct list
     int* target=new int[TOTAL_STATION];
     struct list* next;
 }Task;
+
 Task* recording=new Task;
 Task* last=NULL;
 Task* head_for_FCFS=NULL;
 Task* doing=NULL;//指向当前所作的任务
+
 void print_for_FCFS(Task* recording);
 void create_for_FCFS();
 void request_for_FCFS();
+
 void FCFS()
 {
     //将recording中所有数组初始化为0
@@ -263,4 +265,3 @@ void print_for_FCFS(Task* recording)
     }
     cout<<endl;
 }
-  
