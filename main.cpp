@@ -7,7 +7,6 @@ string order="";
 int door;
 ROAD * bus;
 int TIME=0;
-
 int main()
 {
     config();
