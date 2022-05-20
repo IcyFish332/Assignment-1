@@ -1,5 +1,6 @@
 #include"base.h"
-
+void create_for_FCFS();
+void request_for_FCFS();
 typedef struct list
 {
     int* ccwise=new int[TOTAL_STATION];
@@ -14,7 +15,6 @@ Task* doing=NULL;//指向当前所作的任务
 void print_for_FCFS(Task* recording);
 void create_for_FCFS();
 void request_for_FCFS();
-
 void FCFS()
 {
     //将recording中所有数组初始化为0
@@ -88,8 +88,8 @@ void FCFS()
 
     getorder();
     }
-    cout<<"end"<<endl;
     FreeMemory(bus);
+    //cout<<"FCFS:I am here!"<<endl;
 }
 
 void create_for_FCFS()
@@ -215,11 +215,13 @@ void request_for_FCFS()
             direction=1;//逆时针
         }
     }
+   
 }
 
 void print_for_FCFS(Task* recording)
 {
     int i=0;
+    cout<<"TIME: "<<TIME++<<endl;
     cout<<"BUS:"<<endl;
     cout<<"position: "<<bus->position<<endl;
     cout<<"target: ";

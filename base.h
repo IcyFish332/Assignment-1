@@ -11,6 +11,7 @@ extern int DISTANCE;
 extern int direction;//0->cwise,1->ccwise
 extern int door;
 extern string order;
+extern int TIME;
 
 typedef struct node{
     int position;
