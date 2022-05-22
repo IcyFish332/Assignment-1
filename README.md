@@ -155,15 +155,18 @@ counterclockwise: 0000000000
 
 ### 自动机模型
 
-![图二：公交车状态图](%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%85%AC%E4%BA%A4%E8%BD%A6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F%2063936b48adce4498945b92e25677b14b/%E6%88%AA%E5%B1%8F2022-05-08_21.58.03.png)
+![截屏2022-05-08_21 57 00](https://user-images.githubusercontent.com/91677266/169697550-7d2c3ca2-362a-4333-90e7-791d2e55d579.png)
 
-图二：公交车状态图
 
-![图三：“处理clock”的细化](%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%85%AC%E4%BA%A4%E8%BD%A6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F%2063936b48adce4498945b92e25677b14b/%E6%88%AA%E5%B1%8F2022-05-08_21.57.00.png)
+图二：公交车状态
+
+![截屏2022-05-08_21 58 03](https://user-images.githubusercontent.com/91677266/169697561-4c2a7c26-2922-40bf-875d-0425606856cf.png)
+
 
 图三：“处理clock”的细化
 
-![图四：“处理其他任务”的细化（以SSTF为例）](%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%85%AC%E4%BA%A4%E8%BD%A6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F%2063936b48adce4498945b92e25677b14b/%E6%88%AA%E5%B1%8F2022-05-08_22.02.15.png)
+![截屏2022-05-08_22 02 15](https://user-images.githubusercontent.com/91677266/169697571-b86d0fa7-b79d-47c9-8d02-b579c43531a1.png)
+
 
 图四：“处理其他任务”的细化（以SSTF为例）
 
@@ -261,7 +264,8 @@ int* total=new int [TOTAL_STATION*DISTANCE];
 
 **模块结构图如图所示**
 
-![截屏2022-05-02 21.47.40.png](%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%85%AC%E4%BA%A4%E8%BD%A6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F%2063936b48adce4498945b92e25677b14b/%E6%88%AA%E5%B1%8F2022-05-02_21.47.40.png)
+<img width="528" alt="截屏2022-05-02_21 47 40" src="https://user-images.githubusercontent.com/91677266/169697540-3e0693d5-abdf-4475-8bad-df5718e5b35f.png">
+
 
 ### 二**、文件及函数组成**
 
