@@ -5,6 +5,7 @@
 #include<cstring>
 using namespace std;
 
+extern int TIME;
 extern int TOTAL_STATION;
 extern string STRATEGY;
 extern int DISTANCE;
@@ -31,5 +32,9 @@ void SSTF();
 void SCAN();
 void getorder();//获取指令
 void action();
+void create(int *target,int * wise,int * ccwise,int * total);
+int findmin(int * total);
+int ruler(int flag);
+void print(int *target,int * wise,int * ccwise);
 
 #endif
