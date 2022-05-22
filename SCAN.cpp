@@ -31,7 +31,7 @@ void SCAN()
         create(target,wise,ccwise,total);
         getorder();
     }
-    flag= findmin(total);
+    flag= (findmin(total)-1)* DISTANCE;
     action();
     print(target,wise,ccwise);
     getorder();
