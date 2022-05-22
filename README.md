@@ -4,7 +4,8 @@
 
 用程序模拟一个城市自动驾驶公交车调度系统。自动驾驶公交车调度系统，系统中的要素如下示意图：
 
-![图一：简单的系统示意图](%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E5%85%AC%E4%BA%A4%E8%BD%A6%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F%2063936b48adce4498945b92e25677b14b/Untitled.png)
+![图一：简单的系统示意图][Untitled](https://user-images.githubusercontent.com/91677266/169697277-6451758b-bfa4-4535-b6ae-2992eecd6052.png)
+
 
 图一：简单的系统示意图
 
