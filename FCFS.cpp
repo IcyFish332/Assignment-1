@@ -89,6 +89,24 @@ void FCFS()
     getorder();
     }
     FreeMemory(bus);
+    Task* p=NULL;
+    p=head_for_FCFS->next;
+    while(head_for_FCFS!=NULL)
+    {
+        if(head_for_FCFS->next==NULL)
+        {
+            delete(head_for_FCFS);
+            head_for_FCFS=NULL;
+        }
+        else
+        {
+            p=p->next;
+            delete(head_for_FCFS->next);
+            head_for_FCFS->next=p;
+
+        }
+    }
+    cout<<"end"<<endl;
     //cout<<"FCFS:I am here!"<<endl;
 }
 
