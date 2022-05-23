@@ -51,6 +51,13 @@ void FCFS()
                 if((doing->wise[station-1]==1)||(doing->ccwise[station-1]==1)||(doing->target[station-1]==1))
                 {
                     door=1;//开门
+                    getorder();
+                    while(order!="clock")
+                    {
+                        create_for_FCFS();
+                        getorder();
+                    }
+                    //当getorder为clock时跳出循环
                     //recording中所有数组相应位置减去doing的相应位置，即删掉任务
                     recording->wise[station-1]=recording->wise[station-1]-doing->wise[station-1];
                     recording->ccwise[station-1]=recording->ccwise[station-1]-doing->ccwise[station-1];
@@ -65,22 +72,6 @@ void FCFS()
                         recording->target[station-1]=recording->target[station-1]-doing->target[station-1];
                     }
             
-                    getorder();
-                    while(order!="clock")
-                    {
-                        create_for_FCFS();
-                        //同上，这时不用加doing next不为null条件是因为 按顺序完成请求，如果这时候doing next又相同了，那只可能是
-                        //刚刚getorder进来的，即此为最后一个任务
-                        if((doing->next->wise[station-1]==1)||(doing->next->ccwise[station-1]==1)||(doing->next->target[station-1]==1))
-                        {
-                            doing=doing->next;
-                            recording->wise[station-1]=recording->wise[station-1]-doing->wise[station-1];
-                            recording->ccwise[station-1]=recording->ccwise[station-1]-doing->ccwise[station-1];
-                            recording->target[station-1]=recording->target[station-1]-doing->target[station-1];
-                        }
-                        getorder();
-                    }
-                    //当getorder为clock时跳出循环
                     print_for_FCFS(recording);
                     door=0;//关门
                     doing=doing->next;//任务完成，任务指针向后移一位
