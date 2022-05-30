@@ -184,13 +184,13 @@ void print(int *target,int * wise,int * ccwise)
     cout<<"TIME:"<<TIME++<<endl;
     cout<<"BUS:"<<endl;
     cout<<"position:"<<bus->position<<endl;
-    cout<<"target: ";
+    cout<<"target:";
     for(int i=0;i<TOTAL_STATION;i++)
         cout<< target[i];
-    cout<<endl<<"STATION:"<<endl<<"clockwise: ";
+    cout<<endl<<"STATION:"<<endl<<"clockwise:";
     for(int i=0;i<TOTAL_STATION;i++)
         cout<< wise[i];
-    cout<<endl<<"counterclockwise: ";
+    cout<<endl<<"counterclockwise:";
     for(int i=0;i<TOTAL_STATION;i++)
         cout<< ccwise[i];
     cout<<endl;
