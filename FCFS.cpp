@@ -14,7 +14,7 @@ Task* head_for_FCFS=NULL;
 Task* doing=NULL;//指向当前所作的任务
 
 void print_for_FCFS(Task* recording);
-void create_for_FCFS();
+void create_for_FCFS(Task* recording);
 void request_for_FCFS();
 
 void FCFS()
@@ -37,7 +37,7 @@ void FCFS()
     {
         if(order!="clock")
         {
-            create_for_FCFS();
+            create_for_FCFS(recording);
         }
         request_for_FCFS();
         if(order=="clock")
@@ -54,7 +54,7 @@ void FCFS()
                     getorder();
                     while(order!="clock")
                     {
-                        create_for_FCFS();
+                        create_for_FCFS(recording);
                         getorder();
                     }
                     //当getorder为clock时跳出循环
@@ -102,15 +102,15 @@ void FCFS()
     cout<<"end"<<endl;
 }
 
-void create_for_FCFS()
+void create_for_FCFS(Task* recording)
 {
     int num;
     cin>>num;
     int i;
-    
+
     int check=0;//check为0时创建链表
-    
-    
+
+
     //若请求为当前未完成的一模一样的任务，则不创建链表
     if(order=="clockwise")
     {
@@ -137,37 +137,25 @@ void create_for_FCFS()
     {
         Task *current=new Task;
         current->next=NULL;
+        for(i=0;i<TOTAL_STATION;i++)
+        {
+            current->ccwise[i]=0;
+            current->wise[i]=0;
+            current->target[i]=0;
+        }
         if(order=="clockwise")
         {
             current->wise[num-1]=1;
-           
-            for(i=0;i<TOTAL_STATION;i++)
-            {
-                current->ccwise[i]=0;
-               
-                current->target[i]=0;
-            }
             recording->wise[num-1]+=1;
         }
         if(order=="counterclockwise")
         {
             current->ccwise[num-1]=1;
-            for(i=0;i<TOTAL_STATION;i++)
-            {
-                
-                current->wise[i]=0;
-                current->target[i]=0;
-            }
             recording->ccwise[num-1]+=1;
         }
         if(order=="target")
         {
             current->target[num-1]=1;
-            for(i=0;i<TOTAL_STATION;i++)
-            {
-                current->ccwise[i]=0;
-                current->wise[i]=0;
-            }
             recording->target[num-1]+=1;
         }
         if(doing==NULL)
@@ -185,8 +173,9 @@ void create_for_FCFS()
             last->next=current;
             last=last->next;
         }
-    }  
+    }
 }
+
 
 void request_for_FCFS()
 {
