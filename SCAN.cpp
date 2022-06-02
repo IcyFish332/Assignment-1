@@ -27,29 +27,56 @@ void SCAN()
         print(target,wise,ccwise);
         getorder();
     }
-    while(order!="clock"){
-        create(target,wise,ccwise,total);
+    if(order!="end"){
+        while(order!="clock"){
+            create(target,wise,ccwise,total);
+            getorder();
+        }
+        flag= (findmin(total)-1)* DISTANCE;
+        action();
+        if(flag==bus->position) door=1;
+        print(target,wise,ccwise);
         getorder();
     }
-    flag= (findmin(total)-1)* DISTANCE;
-    action();
-    print(target,wise,ccwise);
-    getorder();
     while(order!="end"){
         if(order=="clock"){
-            if(door==0&&flag!=-1){
+            if(door==0&&flag>=0){
                 action();
                 if(flag==bus->position) door=1;
+                print(target,wise,ccwise);
             }
             else{
                 total[bus->position]=0;
                 ccwise[bus->position/DISTANCE]=0;
                 wise[bus->position/DISTANCE]=0;
                 target[bus->position/DISTANCE]=0;
-                door=0;
                 flag=request_for_SCAN(total);
+                print(target,wise,ccwise);
+                door=0;
+                if(flag==-1) {
+                    getorder();
+                    if(order=="end") break;
+                    while(order!="clock"){
+                        create(target,wise,ccwise,total);
+                        getorder();
+                    }
+                    if(order=="end") break;
+                    for(int i=0;i<TOTAL_STATION*DISTANCE;i++){
+                        if(total[i]==1){
+                            if(ruler(i)==0){
+                                total[bus->position]=0;
+                                ccwise[bus->position/DISTANCE]=0;
+                                wise[bus->position/DISTANCE]=0;
+                                target[bus->position/DISTANCE]=0;
+                            }
+                        }
+                    }
+                    flag = (findmin(total) - 1) * DISTANCE;
+                    if(flag>=0) action();
+                    if(flag==bus->position) door=1;
+                    print(target,wise,ccwise);
+                }
             }
-            print(target,wise,ccwise);
         }
         else{
             create(target,wise,ccwise,total);
