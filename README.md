@@ -424,6 +424,7 @@ while(order!="end")
 **SCAN策略：**
 
 ```cpp
+打印状态;
 关门;
 获取命令;
 while(imput不为"end"){
@@ -443,6 +444,10 @@ while(imput不为"end"){
 	    寻找最短时间任务;
 	    if(有任务) 行动;
 	}
+	打印状态;
+    }
+    else 录入指令；
+    获取命令;
 }
 打印“end”
 
