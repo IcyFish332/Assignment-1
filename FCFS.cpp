@@ -8,7 +8,6 @@ typedef struct list
     struct list* next;
 }Task;
 
-Task* recording=new Task;
 Task* last=NULL;
 Task* head_for_FCFS=NULL;
 Task* doing=NULL;//指向当前所作的任务
@@ -20,6 +19,7 @@ void request_for_FCFS();
 void FCFS()
 {
     //将recording中所有数组初始化为0
+    Task* recording=new Task;
     int i;
     int station;
     for(i=0;i<TOTAL_STATION;i++)
