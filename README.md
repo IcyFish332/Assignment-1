@@ -357,7 +357,6 @@ while（input不为"end"）//input由getorder获取
 **SSTF策略：**
 
 ```cpp
-int targetstations[TOTAL_STATION*DISTANCE]={0};
 //存储当前任务下需要停靠的位置 0不停 1停
 print();
 getorder();
@@ -419,7 +418,6 @@ while(order!="end")
 		getorder();
 }
 打印"end"
-释放内存
 
 ```
 
@@ -427,37 +425,25 @@ while(order!="end")
 
 ```cpp
 关门;
-getorder();
-while(imput为"clock"){
-	print();
-	getorder();
-}
-while(imput不为"clock"){
-	create();
-	getorder();
-}
-findmin();
-action();
-print();
-getorder();
+获取命令;
 while(imput不为"end"){
-	if(imput为"clock"){
-		if(门关){
-			action();
-			if(当前任务与当前位置相同) 开门;
-		}
-		else{
-			结束任务;
-			if(任务清空) 停车;
-		}
-		print();
+    if(imput为"clock"){
+        if(门关同时无任务){
+    	    寻找下一任务;
+	    if(当前有任务) 行动;
+	    if(当前任务与当前位置相同) 开门;
+        }
+	else if（门开）{
+	    结束任务;
+	    寻找下一任务;
+	    关门;
 	}
-	else{
-		create();
-		request();
+        else if(无任务){
+	    检查是否在当前位置有任务，如果有则清空;
+	    寻找最短时间任务;
+	    if(有任务) 行动;
 	}
-	getorder();
 }
 打印“end”
-释放内存
+
 ```
