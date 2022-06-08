@@ -267,7 +267,7 @@ int* total=new int [TOTAL_STATION*DISTANCE];
 <img width="528" alt="截屏2022-05-02_21 47 40" src="https://user-images.githubusercontent.com/91677266/169697540-3e0693d5-abdf-4475-8bad-df5718e5b35f.png">
 
 
-### 二**、文件及函数组成**
+### 二、文件及函数组成
 
 | 源文件 | 源文件说明 | 函数名 | 功能 |
 | --- | --- | --- | --- |
@@ -290,7 +290,7 @@ int* total=new int [TOTAL_STATION*DISTANCE];
 |  |  | int findmin(int * total) | 找到距离最近的站点，并改变方向 |
 |  |  | void print(int *target,int * wise,int * ccwise) | 用于SSTF和SCAN策略的打印 |
 
-### 三**、函数说明**
+### 三、函数说明
 
 | 序号 | 函数原型 | 功能 | 参数 | 返回值 |
 | --- | --- | --- | --- | --- |
@@ -322,28 +322,28 @@ while（input不为"end"）//input由getorder获取
 {
   if(input不为"clock"）
   {
-     create（input）;//创建任务链表
+    create（input）;//创建任务链表
   }
   request();//跟据当前任务决定行走方向
   else if(input为"clock"）
   {
-     action（）;//根据方向移动车辆
-     打印现在的任务及车的位置。
-     if（到达位置）
-     {
-        门开
-        while（下一个任务相同）
-        {
-           当前执行的任务指针向后移一个
-        }
-        while（下一个input不是"clock"）
-        {
-           create（input）//创建任务链表
-           while（下一个任务相同）
-           {
+    action（）;//根据方向移动车辆
+    打印现在的任务及车的位置。
+    if（到达位置）
+    {
+       门开
+       while（下一个任务相同）
+       {
+          当前执行的任务指针向后移一个
+       }
+       while（下一个input不是"clock"）
+       {
+          create（input）//创建任务链表
+          while（下一个任务相同）
+          {
               当前执行的任务指针向后移一个
-           }
-        }
+          }
+       }
         打印现在的任务及车的位置//即clock时打印
         门关
         当前执行的任务指针向后移一个//打印两次任务才算完成
@@ -357,6 +357,7 @@ while（input不为"end"）//input由getorder获取
 **SSTF策略：**
 
 ```cpp
+int targetstations[TOTAL_STATION*DISTANCE]={0};
 //存储当前任务下需要停靠的位置 0不停 1停
 print();
 getorder();
@@ -378,77 +379,85 @@ print();
 getorder();
 while(order!="end")
 {
-		if(order=="clock")
-		{
-				if(门关 并且有主任务进行)
-				{
-						action();
-						if(到站)    door=1;
-				}
-				else if(门关)
-				{
-						删除该任务
-						print();
-						getorder();
-						if(order=="end")  break;
-						while(order!="clock")
-						{
-								creat();
-								getorder();
-						}
-						findmin1();
-						if(没有主任务（空闲）)
-						{
-								action();
-							}
-						door=0;
-						if(到站)  door=1;//特殊情况
-				}
-				print();
-		}
-		else
-		{
-				creat();
-				findscan();
-				if（当前无任务)
-				{
-						findmin1();
-				}
-		}
-		getorder();
+    if(order=="clock")
+    {
+        if(门关 并且有主任务进行)
+        {
+            action();
+            if(到站)    door=1;
+        }
+        else if(门关)
+        {
+            删除该任务
+            print();
+            getorder();
+            if(order=="end")  break;
+            while(order!="clock")
+            {
+                creat();
+                getorder();
+            }
+            findmin1();
+            if(没有主任务（空闲）)
+            {
+                action();
+            }
+            door=0;
+            if(到站)  door=1;//特殊情况
+        }
+        print();
+    }
+    else
+    {
+        creat();
+        findscan();
+        if（当前无任务)
+        {
+            findmin1();
+        }
+    }
+    getorder();
 }
 打印"end"
+释放内存
 
 ```
 
 **SCAN策略：**
 
 ```cpp
-打印状态;
 关门;
-获取命令;
+getorder();
+while(imput为"clock"){
+    print();
+    getorder();
+}
+while(imput不为"clock"){
+    create();
+    getorder();
+}
+findmin();
+action();
+print();
+getorder();
 while(imput不为"end"){
     if(imput为"clock"){
-        if(门关同时无任务){
-    	    寻找下一任务;
-	    if(当前有任务) 行动;
-	    if(当前任务与当前位置相同) 开门;
+        if(门关){
+            action();
+            if(当前任务与当前位置相同) 开门;
         }
-	else if（门开）{
-	    结束任务;
-	    寻找下一任务;
-	    关门;
-	}
-        else if(无任务){
-	    检查是否在当前位置有任务，如果有则清空;
-	    寻找最短时间任务;
-	    if(有任务) 行动;
-	}
-	打印状态;
+        else{
+            结束任务;
+            if(任务清空) 停车;
+        }
+        print();
     }
-    else 录入指令；
-    获取命令;
+    else{
+        create();
+        request();
+    }
+    getorder();
 }
 打印“end”
-
+释放内存
 ```
